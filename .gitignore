@@ -1,0 +1,8 @@
+*.png
+*.gif
+*.html
+*.css
+target/
+test-output/
+org.eclipse*
+.project
