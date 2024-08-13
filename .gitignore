@@ -7,3 +7,4 @@ test-output/
 org.eclipse*
 .project
 .classpath
+.idea/
