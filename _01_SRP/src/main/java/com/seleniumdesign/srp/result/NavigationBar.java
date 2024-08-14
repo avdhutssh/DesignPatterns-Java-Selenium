@@ -1,10 +1,11 @@
-package com.seleniumdesign.srp;
+package com.seleniumdesign.srp.result;
 
+import com.seleniumdesign.srp.common.AbstractComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class NavigationBar extends AbstractComponent{
+public class NavigationBar extends AbstractComponent {
     @FindBy(id = "hdtb")
     private WebElement bar;
 

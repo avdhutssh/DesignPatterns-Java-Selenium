@@ -1,13 +1,14 @@
-package com.seleniumdesign.srp;
+package com.seleniumdesign.srp.common;
 
 import com.google.common.util.concurrent.Uninterruptibles;
+import com.seleniumdesign.srp.common.AbstractComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.concurrent.TimeUnit;
 
-public class SearchWidget extends AbstractComponent{
+public class SearchWidget extends AbstractComponent {
 
     @FindBy(name="q")
     private WebElement searchBox;

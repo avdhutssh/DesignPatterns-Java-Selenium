@@ -1,5 +1,7 @@
-package com.seleniumdesign.srp;
+package com.seleniumdesign.srp.main;
 
+import com.seleniumdesign.srp.common.SearchSuggestion;
+import com.seleniumdesign.srp.common.SearchWidget;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
