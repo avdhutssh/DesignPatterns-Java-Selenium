@@ -13,13 +13,13 @@ public class BaseTest {
     protected WebDriver driver;
 
     @BeforeTest
-    public void setupDriver(){
+    public void setupDriver() {
         this.driver = new ChromeDriver();
         driver.manage().window().maximize();
     }
 
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
         Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
         driver.quit();
     }
