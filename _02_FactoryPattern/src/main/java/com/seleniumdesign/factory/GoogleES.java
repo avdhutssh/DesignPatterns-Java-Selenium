@@ -2,7 +2,7 @@ package com.seleniumdesign.factory;
 
 import org.openqa.selenium.WebDriver;
 
-public class GoogleES extends GoogleEnglish {
+class GoogleES extends GoogleEnglish {
     public GoogleES(WebDriver driver) {
         super(driver);
     }
