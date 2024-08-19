@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class GoogleArabic extends GoogleEnglish {
+class GoogleArabic extends GoogleEnglish {
 
     @FindBy(css = "span.ly0Ckb")
     private WebElement keyboardBtn;

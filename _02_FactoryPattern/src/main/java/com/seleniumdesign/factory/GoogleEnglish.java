@@ -11,11 +11,11 @@ import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class GoogleEnglish extends GooglePage{
+class GoogleEnglish extends GooglePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
-    @FindBy(name="q")
+    @FindBy(name = "q")
     private WebElement searchBox;
 
     @FindBy(name = "btnK")
@@ -33,11 +33,12 @@ public class GoogleEnglish extends GooglePage{
     @FindBy(id = "result-stats")
     private WebElement stat;
 
-    public GoogleEnglish(final WebDriver driver){
+    public GoogleEnglish(final WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         PageFactory.initElements(driver, this);
     }
+
     @Override
     public void launchSite() {
         driver.get("https://www.google.com");
@@ -45,7 +46,7 @@ public class GoogleEnglish extends GooglePage{
 
     @Override
     public void search(String keyword) {
-        for(char ch : keyword.toCharArray()){
+        for (char ch : keyword.toCharArray()) {
             Uninterruptibles.sleepUninterruptibly(5, TimeUnit.MILLISECONDS);
             searchBox.sendKeys(ch + "");
         }
@@ -55,7 +56,7 @@ public class GoogleEnglish extends GooglePage{
 
     @Override
     public int getResultsCount() {
-        wait.until((d)-> results.size()>1);
+        wait.until((d) -> results.size() > 1);
         return results.size();
     }
 

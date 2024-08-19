@@ -2,7 +2,7 @@ package com.seleniumdesign.factory;
 
 import org.openqa.selenium.WebDriver;
 
-public class GoogleFrench extends GoogleEnglish{
+class GoogleFrench extends GoogleEnglish {
     public GoogleFrench(WebDriver driver) {
         super(driver);
     }
