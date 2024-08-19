@@ -20,10 +20,7 @@ class GoogleEnglish extends GooglePage {
 
     @FindBy(name = "btnK")
     private WebElement searchBtn;
-
-    @FindBy(xpath = "(//div[@id='SIvCob']//a)[1]")
-    protected WebElement language;
-
+    
     @FindBy(css = "#rso div")
     private List<WebElement> results;
 
