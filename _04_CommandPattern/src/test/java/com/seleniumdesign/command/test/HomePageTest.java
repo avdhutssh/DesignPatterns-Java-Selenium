@@ -20,10 +20,12 @@ public class HomePageTest extends BaseTest {
         this.homePage.goTo();
         this.homePage.getElementValidators()
                 .stream()
+                .parallel()
                 .map(ev -> ev.validate())
                 .forEach(b -> Assert.assertTrue(b));
 
     }
-    
+
     // Sequential execution time: 30sec 588ms
+    // Parallel execution time: 20sec 615ms
 }
