@@ -28,4 +28,5 @@ public class HomePageTest extends BaseTest {
 
     // Sequential execution time: 30sec 588ms
     // Parallel execution time: 20sec 615ms
+    // Parallel execution time with List.of method in page object: 15sec 615ms
 }

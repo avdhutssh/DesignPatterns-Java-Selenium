@@ -7,7 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.List;
 
 public class HomePage {
@@ -65,7 +64,7 @@ public class HomePage {
     }
 
     public List<ElementValidator> getElementValidators() {
-        return Arrays.asList(
+        return List.of(
                 //notification
                 new NotificationValidator(infoBtn, infoAlert),
                 new NotificationValidator(successBtn, successAlert),
