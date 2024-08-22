@@ -17,13 +17,13 @@ public class PaymentScreenTest extends BaseTest {
     }
 
     @Test(dataProvider = "getData")
-    public void paymentTest(PaymentOption paymentOption, Map<String, String> paymentDetails) {
+    public void paymentTest(String option, Map<String, String> paymentDetails) {
         paymentScreen.goTo();
         paymentScreen.getUserInformation().enterDetails("Avdhut", "Shirgaonkar", "avd123@gmail.com");
-        paymentScreen.setPaymentOption(paymentOption);
+        paymentScreen.setPaymentOption(PaymentOptionFactory.get(option));
         paymentScreen.pay(paymentDetails);
         String orderNumber = paymentScreen.getOrder().placeOrder();
-        System.out.println("Order Number for " + paymentOption + " : " + orderNumber);
+        System.out.println("Order Number for " + option + " : " + orderNumber);
     }
 
     @DataProvider
@@ -43,9 +43,9 @@ public class PaymentScreenTest extends BaseTest {
         pp.put("pwd", "avdhut@7766");
 
         return new Object[][]{
-                {new CreditCard(), cc},
-                {new NetBanking(), nb},
-                {new PayPal(), pp}
+                {"CC", cc},
+                {"NB", nb},
+                {"PP", pp}
         };
 
     }
