@@ -1,64 +1,44 @@
 package com.seleniumdesign.template;
 
+import com.seleniumdesign.template.PageObjects.EBayHomePage;
+import com.seleniumdesign.template.PageObjects.EBayProductDescriptionPage;
+import com.seleniumdesign.template.PageObjects.EBaySearchResultPage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class EBayShopping extends ShoppingTemplate {
     private WebDriver driver;
-    private WebDriverWait wait;
     private String product;
-    private ElementUtils elementUtils;
-
-    @FindBy(id = "gh-ac")
-    private WebElement searchBox;
-
-    @FindBy(id = "gh-btn")
-    private WebElement searchBtn;
-
-    @FindBy(xpath = "(//div[@class='s-item__info clearfix']/a)[3] ")
-    private WebElement item;
-
-    @FindBy(css = "div.x-price-primary span.ux-textspans")
-    private WebElement price;
+    private EBayHomePage EBayHomePage;
+    private EBaySearchResultPage EBaySearchResultPagePage;
+    private EBayProductDescriptionPage EBayProductDescriptionPage;
 
     public EBayShopping(WebDriver driver, String product) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         this.product = product;
-        PageFactory.initElements(driver, this);
-        this.elementUtils = PageFactory.initElements(driver, ElementUtils.class);
+        this.EBayHomePage = PageFactory.initElements(driver, EBayHomePage.class);
+        this.EBaySearchResultPagePage = PageFactory.initElements(driver, EBaySearchResultPage.class);
+        this.EBayProductDescriptionPage = PageFactory.initElements(driver, EBayProductDescriptionPage.class);
     }
 
     @Override
     public void launchSite() {
-        this.driver.get("https://www.ebay.com/");
+        this.EBayHomePage.goTo();
     }
 
     @Override
     public void searchProduct() {
-        this.searchBox.sendKeys(this.product);
-        this.searchBtn.click();
+        this.EBayHomePage.search(this.product);
     }
 
     @Override
     public void selectProduct() {
-        this.wait.until((d) -> this.item.isDisplayed());
-        this.item.click();
+        this.EBaySearchResultPagePage.selectProductOnEBay();
     }
 
     @Override
     public void getPrice() {
-        elementUtils.SwitchTowindow(2);
-        System.out.println(driver.getTitle());
-        System.out.println(driver.getCurrentUrl());
-        this.wait.until((d) -> this.price.isDisplayed());
-        System.out.println("Price on Ebay is: " + this.price.getText());
-        driver.close();
-        elementUtils.SwitchTowindow(1);
+        this.EBayProductDescriptionPage.getPrice();
+
     }
 }
