@@ -31,6 +31,7 @@ public class DashBoardDecorators {
     private static final Consumer<DashboardPage> adminSelection = (dp) -> dp.selectRole("admin");
 
     //user role pages
+    public static final Consumer<DashboardPage> noRoleSelectionPage = guestComponentAbsent.andThen(superuserComponentAbsent.andThen(adminComponentAbsent));
     public static final Consumer<DashboardPage> guestPage = guestSelection.andThen(guestComponentPresent).andThen(superuserComponentAbsent).andThen(adminComponentAbsent);
     public static final Consumer<DashboardPage> superuserPage = superuserSelection.andThen(guestComponentPresent).andThen(superuserComponentPresent).andThen(adminComponentAbsent);
     public static final Consumer<DashboardPage> adminPage = adminSelection.andThen(guestComponentPresent).andThen(superuserComponentPresent).andThen(adminComponentPresent);

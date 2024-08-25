@@ -25,6 +25,7 @@ public class DashboardPageTest extends BaseTest {
     @DataProvider
     public Object[] getData() {
         return new Object[]{
+                DashBoardDecorators.noRoleSelectionPage,
                 DashBoardDecorators.guestPage,
                 DashBoardDecorators.superuserPage,
                 DashBoardDecorators.adminPage
