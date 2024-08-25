@@ -9,7 +9,7 @@
 
 ---
 
-# 🎨 Design Patterns in Selenium with Java
+# 🎨 Design Patterns in JAVA with Selenium
 
 ## 📑 Table of Contents
 
