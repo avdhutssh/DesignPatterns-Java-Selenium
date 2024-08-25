@@ -51,7 +51,7 @@ Pattern/
 │   │  │  │  ├── PageObjects and Wrapper Classes/      # Page Object classes and wrapper classes
 Pattern/
 ├──────src/main/test
-│   │  │  │  ├── BaseTest and main Test   # Test classes
+│   │  │  │  ├── Base Test and Main Test   # Test classes
 ```
 
 ## ▶️ Getting Started
@@ -68,8 +68,8 @@ Pattern/
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/avdhutssh/Advanced-Selenium-Webdriver.git
-   cd Advanced-Selenium-Webdriver
+   git clone https://github.com/avdhutssh/DesignPatterns-Selenium
+   cd DesignPatterns-Selenium
    ```
 
 2. Install dependencies:
