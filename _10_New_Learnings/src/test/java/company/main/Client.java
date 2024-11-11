@@ -1,5 +1,6 @@
 package company.main;
 
+
 import company.directory.Directory;
 import company.directory.Employee;
 import company.factory.Factory;
@@ -7,12 +8,13 @@ import company.factory.SimpleFactory;
 
 import java.util.List;
 
+
 public class Client {
     public static void main(String[] args) {
         Factory factory = new SimpleFactory();
         Directory directory = factory.getDirectory();
 
-        // Add an employee
+        // Add employees
         Employee emp1 = new Employee(1, "John Doe", 1234567890L);
         directory.add(emp1);
 
