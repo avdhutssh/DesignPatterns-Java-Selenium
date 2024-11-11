@@ -1,14 +1,11 @@
-
 package company.directory;
 
 
 import company.adapter.Store;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleDirectory extends Directory {
-    private List<Employee> employees = new ArrayList<>();
     private Store store;
 
     public SimpleDirectory(Store store) {
@@ -17,18 +14,19 @@ public class SimpleDirectory extends Directory {
 
     @Override
     public Employee add(Employee e) {
-        employees.add(e);
-        return e;
+        // Use store to create (add) employee
+        return store.create(e);
     }
 
     @Override
     public List<Employee> search(String key) {
+        // Use store to search employees by name
         return store.read(key);
     }
 
     @Override
     public Employee find(int eid) {
+        // Use store to find employee by ID
         return store.read(eid);
     }
 }
-        

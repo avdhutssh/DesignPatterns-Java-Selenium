@@ -1,4 +1,3 @@
-
 package company.adapter;
 
 import company.directory.Employee;
@@ -17,11 +16,18 @@ public class ArrayStore implements Store {
 
     @Override
     public Employee read(int eid) {
-        return items.stream().filter(emp -> emp.getEid() == eid).findFirst().orElse(null);
+        // Find employee by ID
+        for (Employee emp : items) {
+            if (emp.getEid() == eid) {
+                return emp;
+            }
+        }
+        return null;  // Return null if employee with the given ID is not found
     }
 
     @Override
     public List<Employee> read(String name) {
+        // Find employees by name
         List<Employee> result = new ArrayList<>();
         for (Employee emp : items) {
             if (emp.getName().equalsIgnoreCase(name)) {
@@ -31,4 +37,3 @@ public class ArrayStore implements Store {
         return result;
     }
 }
-        
