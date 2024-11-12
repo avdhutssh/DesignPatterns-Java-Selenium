@@ -8,41 +8,40 @@ public class Client {
     public static void main(String[] args) {
         EventBroker broker = new EventBroker();
 
-        // Register a subscriber for String type events
-        broker.registerSubscriber(String.class, event -> {
-            System.out.println("Received string event: " + event.getPayload());
-        });
+        // Register subscribers for String and Integer event types
+        broker.registerSubscriber(String.class, new StringSubscriber());
+        broker.registerSubscriber(Integer.class, new IntegerSubscriber());
 
-        // Register a subscriber for Integer type events
-        broker.registerSubscriber(Integer.class, event -> {
-            System.out.println("Received integer event: " + event.getPayload());
-        });
-
-        // Publish events
+        // Set custom headers for the events
         Map<String, String> headers = new HashMap<>();
-        headers.put("ExampleHeader", "HeaderValue");
+        headers.put("Event-Type", "TestEvent");
+        headers.put("Origin", "MainApp");
 
+        // Publish a String event with metadata
         Event<String> stringEvent = new Event<>(
                 LocalDateTime.now(),
-                null,
-                1,
-                "Sender1",
+                3000L,  // timeout in milliseconds
+                1,      // priority level
+                "Publisher1",
                 "Hello Event!",
                 headers
         );
 
+        // Publish an Integer event with metadata
         Event<Integer> integerEvent = new Event<>(
                 LocalDateTime.now(),
-                null,
+                5000L,
                 2,
-                "Sender2",
+                "Publisher2",
                 42,
                 headers
         );
 
+        // Publish events to the broker
         broker.publishEvent(stringEvent);
         broker.publishEvent(integerEvent);
 
+        // Shutdown broker's executor service
         broker.shutdown();
     }
 }
