@@ -4,7 +4,6 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-
 public class Event {
     private final String type;
     private final Object body;
